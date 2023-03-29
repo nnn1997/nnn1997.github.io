@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   
   
-    <meta name="keywords" content="Machine Learning,Data Solution">
+    <meta name="keywords" content="Fish Farming, Machine Learning, Profit Prediction,Data Solution">
   
   
-    <meta name="description" content="Deployments of ML and DL algorithms are the process of discovering, interpreting, and communicating significant patterns in data. It allows you to see insights within the data that would otherwise have remained undetected. The use of past and current data will allow you to make more reliable predictions of future trends in outcomes.">
+    <meta name="description" content="A Chinese contractor is fret to whether rent a fishing pool or not. But how could we design an optimal scheme to help its profit maximised?">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-  <title>Machine Learning and Deep Learning Analytics |  XLab</title>
+  <title>How the XLab help local fish farming contractor predict profit? |  XLab</title>
   
     <link rel="apple-touch-icon" sizes="57x57" href="/images/webclip/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/images/webclip/apple-touch-icon-72x72.png">
@@ -80,14 +80,14 @@
 
     <section>
       <div class="container">
-  <article id="post-data-analysis" class="article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <article id="post-fish" class="article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   
   <div class="artcle-cover mb-5">
     
   
     
-      <img class="artcle-cover-img lazyload" data-src="/images/machine.jpg" itemprop="image" alt="">
+      <img class="artcle-cover-img lazyload" data-src="/images/fish.jpg" itemprop="image" alt="">
        
   
 
@@ -100,13 +100,13 @@
       
   
     <h1 class="article-title" itemprop="name">
-      Machine Learning and Deep Learning Analytics
+      How the XLab help local fish farming contractor predict profit?
     </h1>
   
 
       <div class="article-meta">
-        <time class="text-gray" datetime="2023-03-02T18:04:54.000Z" itemprop="datePublished">
-  2023-03-02
+        <time class="text-gray" datetime="2023-03-28T17:07:22.000Z" itemprop="datePublished">
+  2023-03-28
 </time>
         
       </div>
@@ -114,23 +114,72 @@
     </header>
     
     <div class="article-entry" itemprop="articleBody">
-      <p>Do you have large datasets that are difficult to analyze and extract insights from? Do you want to make data-driven decisions and stay ahead of the competition?</p>
-<p>Our Machine Learning and Deep Learning Data Analytics service provides a comprehensive range of services to help you analyze your data effectively. Our team of experts in machine learning, data science, and computer science will work with you to develop a customized solution tailored to your organization’s unique needs. We offer a range of services, including data pre-processing and cleaning, model development and training, model deployment and monitoring, data visualization and reporting, and model optimization.</p>
-<p>Our data pre-processing and cleaning services ensure that your data is clean and ready for analysis, including removing duplicates, filling in missing values, and normalizing data. Our model development and training services use the latest machine learning and deep learning algorithms to develop models that can analyze your data and extract insights from it. Our model deployment and monitoring services ensure that the model is integrated into your systems and performing optimally.</p>
-<p>We understand the importance of data visualization and reporting, and we provide tools to help you understand and communicate the insights extracted from your data in an easy-to-understand format. Finally, our model optimization services continuously fine-tune the algorithms and adjust the parameters to improve accuracy and efficiency.</p>
-<p>Our services include:</p>
-<ul>
-<li><p>Data preprocessing and cleaning: This involves cleaning and preparing data for analysis, such as removing duplicates, filling in missing values, and normalizing data.</p>
-</li>
-<li><p>Model development and training: These businesses use machine learning and deep learning algorithms to develop models that can analyze data and extract insights from it. These models are trained using large datasets and refined to improve accuracy.</p>
-</li>
-<li><p>Model deployment and monitoring: After developing and training the model, these businesses deploy it into the client’s systems and monitor its performance to ensure it is providing accurate and useful insights.</p>
-</li>
-<li><p>Data visualization and reporting: Machine learning and deep learning data analysis businesses provide tools for visualizing and reporting insights from the data analysis to the client in an easy-to-understand format.</p>
-</li>
-<li><p>Model optimization: These businesses continuously improve and optimize the models by fine-tuning the algorithms and adjusting the parameters to improve accuracy and efficiency.</p>
-</li>
+      <p>Suppose there is a pond in a certain area with a water surface area of 100*100 square meters. Based on the local environment, it is determined that the maximum amount of fish that can be raised per square meter is 1 kilogram, and there are approximately 500 fish per kilogram of fish fry. The fish can grow all year round, and the daily growth weight is proportional to their weight. They can grow into mature fish weighing 2 kilograms in 360 days. Each kilogram of fish requires 0.005 kilograms of feed per day. Only fish fry are stocked in the pond, and the breeding and death of fish in the pond can be ignored. The market price of fish feed is 0.2 yuan&#x2F;kilogram, and the selling price of this type of fish is:</p>
+<table>
+<thead>
+<tr>
+<th>Fish Weight</th>
+<th>Price Per kg</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0.2-0.75</td>
+<td>6</td>
+</tr>
+<tr>
+<td>0.75-1.5</td>
+<td>8</td>
+</tr>
+<tr>
+<td>1.5-2</td>
+<td>10</td>
+</tr>
+<tr>
+<td>&lt;0.2</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h1 id="Basic-Conditions"><a href="#Basic-Conditions" class="headerlink" title="Basic Conditions"></a>Basic Conditions</h1><ul>
+<li>The survival space for the fish is $1 kg&#x2F;m^2$;</li>
+<li>Each 1 kg of fish requires 0.005 kg of feed per day, and the market price for fish feed is 0.2 yuan&#x2F;kg;</li>
+<li>The price of fish fry is negligible, and each 1 kg of fish fry has approximately 500 fish;</li>
+<li>The fish can grow all year round, and the daily growth rate is proportional to their weight, and they can grow into adult fish in 360 days with a weight of 2 kg;</li>
+<li>Fish reproduction and death in the pond can be ignored;</li>
+<li>If q is the weight of the fish, then the selling price of this type of fish is shown in the previous table.</li>
+<li>Only fish can be put in the pool.</li>
 </ul>
+<p>Therefore, XLab is linking the price of fish to the fish farming time to create a pricing system. However, due to the complexity of fish farming, we have ignored some factors that affect fish farming and applied linear programming models to solve the problem of fish farming.</p>
+<h1 id="Assumptions"><a href="#Assumptions" class="headerlink" title="Assumptions"></a>Assumptions</h1><p>The following assumptions are made in solving the fish farming problem using linear programming:</p>
+<ul>
+<li>Only fish fry can be released into the pond, and fish breeding and death are not considered.</li>
+<li>Fish can grow all year round, and the daily growth rate is proportional to the fish’s weight. It takes 360 days for a fish to grow into an adult with a weight of 2 kg.</li>
+<li>The survival space for fish is $1 kg&#x2F;m^2$, and each 1 kg of fish requires 0.005 kg of feed per day. The market price for fish feed is 0.2 yuan&#x2F;kg. The price of fish fry is ignored, and there are approximately 500 fish fry per 1 kg of fish fry.</li>
+<li>It is assumed that there are no variations in the growth of fish during the growth process, and the growth of each fish follows a growth coefficient.</li>
+<li>It is assumed that the fish caught are fresh and can be sold at the given price.</li>
+<li>It is assumed that all the fish caught can be sold without any leftovers.</li>
+<li>Fish fry can be released and caught all year round, regardless of time or season.</li>
+<li>The growth of the released fish fry is not affected by individual differences, and all fish fry can grow under the given conditions to the same size in the same amount of time.</li>
+<li>The market price for fish and feed does not change within three years.</li>
+</ul>
+<h1 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h1><ul>
+<li>$a_0$: The initial number of fish released into the pond.</li>
+<li>$\lambda$: The proportion of fish weight increase per day.</li>
+<li>$c_t$: The cost of feed per fish per day under the condition of t days of aquaculture.</li>
+<li>$m_t$: The weight of each fish under the condition of t days of aquaculture.</li>
+<li>M: Total revenue for three years.</li>
+<li>a: The number of fish fry released per day.</li>
+<li>$q_t$: The weight of each fish under the condition of t days of aquaculture.</li>
+</ul>
+<h1 id="Modeling"><a href="#Modeling" class="headerlink" title="Modeling"></a>Modeling</h1><p>Assuming that the fish fry are put into the fish pond all at once and sold at the end of the year when they become adult fish, the same plan is followed for the second and third years. Based on the capacity of the fish pond, when the fish grow into adult fish, their weight is 2 kg, and the survival space for each fish is $1 kg&#x2F;m^2$. Therefore, we assume that the initial number of fish put into the pond is $a_0$, and $a_0&#x3D;10000&#x2F;2&#x3D;500 (fish)$. We assume that the daily growth rate of fish is $\lambda$:</p>
+<p>$$ 1000 &#x2F; 500(1+\lambda)^{360}&#x3D;2000 $$</p>
+<p>So:</p>
+<p>$$ \lambda&#x3D;\sqrt[360]{1000}-1&#x3D;0.0191 $$</p>
+<p>Assuming that the weight of each fish under the condition of breeding t days is $m_t$, so $m_t&#x3D;1 &#x2F; 500(1+\lambda)^t$</p>
+<p>Assume that the feed cost required by each fish under the condition of t days of breeding is $c_t$:</p>
+<p>$$ c_t&#x3D;\sum_{j&#x3D;1}^t 1 &#x2F; 500(1+\lambda) \times 0.005 \times 0.2&#x3D;\sum_{i&#x3D;1}^t 3 &#x2F; 250(1+\lambda)^i $$</p>
+<p>Total profit of three years M should be:</p>
+<p>$$ \mathrm{M}&#x3D;10 \times 5000 \times 2 \times 3-5000 c_t \times 3 &#x3D; 3 \times(100000-34415)&#x3D;196753.2$$</p>
+<p>Therefore, our contractor will gain 196,573.2 Yuan (equivalent 23,160.88 Pounds sterling)</p>
 
     </div>
     <footer class="article-footer">
@@ -142,19 +191,10 @@
     
 <nav class="article-nav pt-4 mt-3" id="article-nav">
   
-    <a href="/2023/03/02/advanced-data/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Advanced Data Solutions
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/03/01/data_storage/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/03/28/cocoon/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Data Management</div>
+      <div class="article-nav-title">How the XLab predict the profit of the local cocoon industry?</div>
     </a>
   
 </nav>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  
+    <meta name="keywords" content="Economic Prediction, Machine Learning, Cocoon,Data Solution">
+  
+  
+    <meta name="description" content="One Chinese county is struggling to expend its cocoon industry. In 1990, its cocoon output was only 0.2 ton, before soaring to 2,468 tons in 2017, with income of 22.27 million Chinese Yuan (equivalent 2.62 Pounds sterling). For finding the tendency and predicting the cocoon industry output, the XLab employs the statistic method to provide the scientific solutions to them.">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <title>How the XLab predict the profit of the local cocoon industry? |  XLab</title>
+  
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/webclip/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/webclip/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/webclip/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/webclip/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/webclip/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/webclip/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/webclip/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/webclip/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/images/webclip/apple-touch-icon-167x167.png">
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <main class="main">
+    
+	<header class="header">
+
+	<div class="container">
+		<nav class="navbar d-flex align-items-center">
+			<a class="brand" href="/">
+				<img class="logo lazyload" data-src="/images/xlab-icon.png" alt="XLab" role="img">
+			</a>
+			<ul class="main-nav">
+  
+    
+  <li class="nav-item ">
+    <a class="nav-item-link" href="/">HOME</a>
+  </li>
+  
+    
+  <li class="nav-item ">
+    <a class="nav-item-link" href="/gallery">SERVICES</a>
+  </li>
+  
+    
+  <li class="nav-item ">
+    <a class="nav-item-link" href="/stories">EXAMPLES</a>
+  </li>
+  
+    
+  <li class="nav-item ">
+    <a class="nav-item-link" href="/archives">BLOG</a>
+  </li>
+  
+    
+  <li class="nav-item ">
+    <a class="nav-item-link" href="/about">ABOUT</a>
+  </li>
+  
+</ul>
+		</nav>
+		<a id="mobile-nav-toggle">
+			<span class="mobile-nav-toggle-bar"></span>
+			<span class="mobile-nav-toggle-bar"></span>
+			<span class="mobile-nav-toggle-bar"></span>
+		</a>
+	</div>
+</header>
+
+    <section>
+      <div class="container">
+  <article id="post-cocoon" class="article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  
+  <div class="artcle-cover mb-5">
+    
+  
+    
+      <img class="artcle-cover-img lazyload" data-src="/images/cocoon.jpg" itemprop="image" alt="">
+       
+  
+
+  </div>
+  
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+      
+  
+    <h1 class="article-title" itemprop="name">
+      How the XLab predict the profit of the local cocoon industry?
+    </h1>
+  
+
+      <div class="article-meta">
+        <time class="text-gray" datetime="2023-03-28T17:00:15.000Z" itemprop="datePublished">
+  2023-03-28
+</time>
+        
+      </div>
+      
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      <h1 id="Assumptions-and-Notations"><a href="#Assumptions-and-Notations" class="headerlink" title="Assumptions and Notations"></a>Assumptions and Notations</h1><ul>
+<li>Mulberry planting technology and conditions: including soil type, management techniques, climate, pest control, pesticide prices, mulberry varieties, etc.</li>
+<li>Sericulture technology and conditions: including climate, disease prevention and control, drug prices, quantity and quality of silkworm eggs, silkworm rearing equipment, etc.</li>
+<li>Mulberry planting and sericulture technologies, drug prices, etc. are difficult to quantify and may be considered constant in the subsequent discussions.</li>
+<li>We believe that the following variables are independent of each other.</li>
+</ul>
+<p>Therefore, we have these notations:</p>
+<ul>
+<li>$C_t$: Total cocoon production in this county in the year of t (tonnage)</li>
+<li>$R_t$: Average individual income in this county in the year of t (US dollars)</li>
+<li>$G_t$: Total food production in this county in the year of t (tonnage), to measure the relationships between the cocoon and food production.</li>
+<li>$PO_t$: Total population.</li>
+<li>$m_t$: New Mulberry Plant.</li>
+<li>$I_t$: Silkworm Eggs Issue by the county authorities.</li>
+<li>$P_t$: The purchase price of cocoons in this county in year of t.</li>
+<li>$\varepsilon_t$: Stochastic error in the year of t.</li>
+</ul>
+<h1 id="Modeling-Construction-and-Solution"><a href="#Modeling-Construction-and-Solution" class="headerlink" title="Modeling Construction and Solution"></a>Modeling Construction and Solution</h1><p>Based on the 12-year statistical data and the system analysis, using the subset regression method for variable selection in regression analysis, a mathematical model is determined as follows:</p>
+<p>$$ C_t&#x3D;\beta_0+\beta_1 R_{t-1}+\beta_2 G_t+\beta_3 P O_t+\beta_4 m_{t-1}+\beta_5 P_{t-2}+\varepsilon_t $$</p>
+<p>Assuming $\beta_i(i&#x3D;0,1,2,3,4,5)$ are undetermined coefficients. Let $x_1&#x3D;R_{t-1}, x_2&#x3D;G_t, x_3&#x3D;P O_t, x_4&#x3D;m_{t-1}, \quad x_5&#x3D;P_{t-2}$, and $y&#x3D;C_t$, so its matrix expression is $Y&#x3D;X \beta+\varepsilon$:</p>
+<p><img src="/images/cocoon/matrix.jpg" alt="Alt Text"></p>
+<p>where $x_{i j}$ is the i-th observations of $x_j$, $y_i$ is the i-th observations. During the process of using regression methods to build the model, we found that the residual between cocoon production and the fitted value was consistently large in 2015. We conducted an outlier detection to address this issue:</p>
+<p>$$ g_i&#x3D;\frac{e_i}{(\hat{\sigma}(1-h_{i i}))^{\frac{1}{2}}} $$</p>
+<p>where $h_{ii}$ is element of the i-th column and i-th row of $X\left(X^T X\right)^{-1} X^T$. The calculated value of $g_i$ for 2015 is 2.22. The upper limit of the studentized residual $L_i$ is found to be 1.92. Therefore, since $g_i &gt; L_i$, the value of $C_t$ in 2015 is considered an outlier. During this period, there were some special circumstances, so-called the “Cocoon War” period, where the county took some measures to purchase more cocoons, resulting in the purchase value exceeding the actual production value. Based on this reason, we excluded the cocoon production value and corresponding variable values for that year in the regression process. After this processing, the R-squared value increased from 0.771 to 0.997 and the residual sum of squares decreased. The obtained mathematical model (Model 1) is given by:</p>
+<p>$$ \hat{C}<em>t&#x3D; 8320.8539+2.442508 R</em>{t-1}+0.0175070 G_t-0.0221317 P O_t +0.24732 m_{t-1}-0.0250938 P_{t-2} $$<br>$$ t&#x3D;(2.9972247, 3.6094181, 14.854457, -3.6843169, 1.2470159, -1.7674112) $$<br>$$ n&#x3D;10, R^2&#x3D;0.997030, D W&#x3D;2.481635, \hat{\sigma}&#x3D;24.00644, \sum e_i^2&#x3D;2305.237, F&#x3D;268.566 $$</p>
+<p>Model 1’s t and F values pass the test at the 10% significance level. The results of fitting the cocoon production values from 2005 to 2017 (except for 2015) using Model 1 are shown in Table 1. When evaluating Model 1, we found collinearity between the explanatory variables $R_{t-1}$ and $PO_t$. Therefore, we made modifications to Model 1 and obtained Model 2:</p>
+<p>$$ \hat{C}<em>t&#x3D;1879.44427+0.01486611 G_t+0.0310936 m</em>{t-1}+0.0121742 P_{t-2} $$<br>$$ t&#x3D;(9.4074372,1.4844252,1.4525412,-6.0696337) $$<br>$$ n&#x3D;10, R^2&#x3D;0.986929, D W&#x3D;2.596908, \hat{\sigma}&#x3D;41.121, \sum e_i^2&#x3D;10145.62, F&#x3D;151.0099 $$</p>
+<p>At a significance level of 10%, the t and F values of model 2 pass the test. According to the residual analysis, model 2 no longer has collinearity, autocorrelation, and heteroscedasticity errors. The results of using model 2 to fit the cocoon production values from 2007 to 2017 (except 2015) are shown in Table 2. Therefore, model 2 is more suitable as an economic structure decision-making model. Next, we will use it for economic structure decision-making analysis.</p>
+<p>With the increase in prices and the improvement of farmers’ enthusiasm, they will plant more mulberry trees, which will increase cocoon production and farmers’ income, further expanding mulberry planting and silkworm breeding. Since the growth of mulberry has a certain time lag, an immediate increase in cocoon production cannot be observed after the price increase. This is a long-cycle process.</p>
+<p>Table 2: Fitting Capacity of both Models</p>
+<p>| Year | $C_t$ | $\hat{C}<em>{1 t}$ | $E</em>{1 t}$ | $\hat{C}<em>{2 t}$ | $E</em>{2 t}$ |<br>| —- | —- | ——– | ——– | —— | —— | —- | —— |<br>| 2007 | 1374.3 | 1390.401 | -16.10 | 1404.571 | -30.27 |<br>| 2008 | 1706.8 | 1737.831 | 22.97 | 1327.680 | 37.12 |<br>| 2009 | 2025.0 | 2029.821 | -4.82 | 1976.185 | 48.82 |<br>| 2010 | 1928.2 | 1930.652 | -2.45 | 1986.465 | -58.26 |<br>| 2011 | 2069.0 | 2078.574 | -9.57 | 2055.349 | 13.65 |<br>| 2012 | 1657.3 | 1648.061 | 9.24 | 1633.266 | 24.03 |<br>| 2013 | 1917.4 | 1915.626 | 1.77 | 1953.191 | -35.79 |<br>| 2014 | 1994.0 | 1987.656 | 6.34 | 1994.177 | -0.18 |<br>| 2016 | 2136.0 | 2148.160 | -12.16 | 2123.794 | 4.21 |<br>| 2017 | 2468.0 | 2463.220 | 4.78 | 2471.322 | -3.32 |</p>
+<h1 id="Economic-Analysis-and-Decision-Recommendations"><a href="#Economic-Analysis-and-Decision-Recommendations" class="headerlink" title="Economic Analysis and Decision Recommendations"></a>Economic Analysis and Decision Recommendations</h1><p>Based on the t-values of Model 2, it can be observed that the relationship between silk production and grain production is the most significant among the examined years. The next most significant factors are the scattered mulberry trees from the previous year and the silk prices from two years ago.</p>
+<h2 id="Relationship-between-Cocoon-Industry-Development-and-Grain-Production"><a href="#Relationship-between-Cocoon-Industry-Development-and-Grain-Production" class="headerlink" title="Relationship between Cocoon Industry Development and Grain Production"></a>Relationship between Cocoon Industry Development and Grain Production</h2><p>According to Model 2, CtGt &#x3D; 0.149, which indicates that in the years we examined, the silk production increased with the increase of grain production. The reasons for this are as follows:</p>
+<ul>
+<li>Since 2005, rural production has gradually returned to normal after the impact of the Cultural Revolution, coupled with favorable weather conditions in recent years, resulting in synchronous growth in grain and silk production.</li>
+<li>Leaders at all levels in the county attach great importance to diversified production, especially in the development of sericulture, and have formulated a series of preferential policies to mobilize the enthusiasm of farmers.</li>
+</ul>
+<p>The positive correlation between silk production and grain production indicates that the current development of sericulture in the county has not affected the increase in grain production. Therefore, on the premise of ensuring stable and high grain production, the county can further expand the planting area of mulberry trees in a planned and step-by-step manner, as well as the planting of scattered mulberry trees in field edges, corners, and around houses, and expand the sericulture industry.</p>
+<h2 id="Relationship-between-Silk-Production-and-Mulberry-Trees-Prices"><a href="#Relationship-between-Silk-Production-and-Mulberry-Trees-Prices" class="headerlink" title="Relationship between Silk Production and Mulberry Trees, Prices"></a>Relationship between Silk Production and Mulberry Trees, Prices</h2><p>From model 2, we can see that the previous year’s scattered mulberry trees and the silk purchase prices from two years ago are almost equally important in terms of their impact on silk production, ranking second. This means that under the condition of unchanged policies, silk production is influenced by both prices and mulberry trees.</p>
+<p>The model reflects that the current planting quantity has a significant impact on the silk production. However, in the case of limited land area, the number of mulberry trees cannot be increased indefinitely. Therefore, it is necessary to introduce high-quality varieties of mulberry trees, implement scientific management methods and cultivation techniques, and improve the yield and quality of mulberry leaves.</p>
+<h2 id="Relationship-between-Sericulture-Production-and-Surplus-Labor-and-Farmers’-Income-in-Rural-Areas"><a href="#Relationship-between-Sericulture-Production-and-Surplus-Labor-and-Farmers’-Income-in-Rural-Areas" class="headerlink" title="Relationship between Sericulture Production and Surplus Labor and Farmers’ Income in Rural Areas"></a>Relationship between Sericulture Production and Surplus Labor and Farmers’ Income in Rural Areas</h2><p>In Model 2, the variables of rural population ($PO_t$) and per capita income from the previous year ($R_{t-1}$) did not appear. According to the actual investigation, the current sericulture industry in rural areas is mainly limited to women, the elderly, and minors. Most of the surplus labor in rural areas is engaged in other industries, such as construction and long-distance transportation, etc. That is to say, the main source of income for farmers is not from silkworm cocoon income. Therefore, if we can break through traditional concepts, invest more labor in sericulture, and adopt scientific methods to plant mulberry trees and raise silkworms, there is still great potential for the development of sericulture in the county. In addition, while expanding the planting of mulberry trees and raising silkworms, by developing by-products such as mulberry fruit, silkworm sand, silkworm pupae, etc., we can increase the channels for by-product sales. This will enable more reasonable arrangements for rural surplus labor, increase economic income, and take the county’s economic development to a new level.</p>
+<h2 id="Recommendations"><a href="#Recommendations" class="headerlink" title="Recommendations"></a>Recommendations</h2><ul>
+<li>Encourage the cultivation of mulberry trees: Given the close relationship between silk production and mulberry trees, it is essential to promote the planting of mulberry trees. The government can offer incentives to farmers to encourage them to plant more mulberry trees.</li>
+<li>Increase grain production: As grain production has a significant impact on silk production, measures to increase grain production should be taken. For instance, the government can offer subsidies or technical support to farmers to improve their agricultural productivity.</li>
+<li>Stabilize silk prices: The stability of silk prices is crucial to the development of the silk industry. Therefore, the government should take measures to stabilize silk prices and prevent fluctuations that may negatively impact farmers’ income and the development of the industry.</li>
+</ul>
+<p>Overall, the findings of the economic analysis and decision recommendations based on Model 2 can help guide policy-makers and stakeholders in the silk industry to make informed decisions that will promote the sustainable development of the industry.</p>
+<h1 id="Prediction"><a href="#Prediction" class="headerlink" title="Prediction"></a>Prediction</h1><p>From Model 2, we predict the cocoon production in 2018:</p>
+<p>$$ t&#x3D;2018, G_t&#x3D;250462, m_{t-1}&#x3D;3606, P_{t-2}&#x3D;8876 $$</p>
+<p>Therefore, $\hat{C}_t&#x3D;2062.88$, comparing the real number $C_t&#x3D;2151$, its relative error $\frac{C_t-\hat{C}_t}{C_t}&#x3D;4 %$.  It can be seen that the model 2 can not only be used for economic analysis, but also has a certain predictive ability.</p>
+<h1 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h1><p>The method of using mathematical models to study rural economic development can be universally applicable in identifying the development laws of planting and breeding industries in rural areas, and providing necessary basis for decision-making. The planting of mulberry trees and the breeding of silkworms integrate planting and breeding industries, which are more complex than simple planting or breeding. Whether other mathematical methods can provide mathematical decision-making models for this system requires further exploration. In addition, with the deepening of rural reform, it is necessary to further verify whether this model can adapt to longer-term issues in the planting of mulberry trees and the breeding of silkworms system.</p>
+<p>Table 1: Local Economic Indicators (Source: Local Statistic Authorities)</p>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Average Individual Income (Dollars)</th>
+<th>Total Food Production (t)</th>
+<th>Population</th>
+<th>New Mulberry Plant</th>
+<th>Silkworm Eggs Issue</th>
+<th>Cocoon Purchase Price</th>
+<th>Cocoon Output</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2005</td>
+<td>148</td>
+<td>200625</td>
+<td>502178</td>
+<td>1422</td>
+<td>27168</td>
+<td>2589</td>
+<td>710.6</td>
+</tr>
+<tr>
+<td>2006</td>
+<td>172</td>
+<td>232325</td>
+<td>500780</td>
+<td>1491</td>
+<td>35307</td>
+<td>2875</td>
+<td>1068.0</td>
+</tr>
+<tr>
+<td>2007</td>
+<td>192</td>
+<td>215740</td>
+<td>501716</td>
+<td>2028</td>
+<td>47431</td>
+<td>2998</td>
+<td>1374.3</td>
+</tr>
+<tr>
+<td>2008</td>
+<td>213</td>
+<td>235855</td>
+<td>503938</td>
+<td>2800</td>
+<td>65752</td>
+<td>3033</td>
+<td>1760.8</td>
+</tr>
+<tr>
+<td>2009</td>
+<td>189</td>
+<td>251130</td>
+<td>506583</td>
+<td>3050</td>
+<td>81117</td>
+<td>3358</td>
+<td>2025.0</td>
+</tr>
+<tr>
+<td>2010</td>
+<td>217</td>
+<td>251270</td>
+<td>507349</td>
+<td>3494</td>
+<td>93662</td>
+<td>2930</td>
+<td>1928.2</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>250</td>
+<td>254710</td>
+<td>507945</td>
+<td>3350</td>
+<td>99214</td>
+<td>2987</td>
+<td>2069.0</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>276</td>
+<td>226960</td>
+<td>509030</td>
+<td>3350</td>
+<td>99990</td>
+<td>2987</td>
+<td>1657.3</td>
+</tr>
+<tr>
+<td>2013</td>
+<td>336</td>
+<td>248441</td>
+<td>517121</td>
+<td>3350</td>
+<td>90000</td>
+<td>3145</td>
+<td>1917.4</td>
+</tr>
+<tr>
+<td>2014</td>
+<td>370</td>
+<td>251199</td>
+<td>522656</td>
+<td>3380</td>
+<td>90603</td>
+<td>5145</td>
+<td>1994.0</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>433</td>
+<td>247944</td>
+<td>526004</td>
+<td>3560</td>
+<td>107076</td>
+<td>8562</td>
+<td>2621.0</td>
+</tr>
+<tr>
+<td>2016</td>
+<td>473</td>
+<td>258252</td>
+<td>528406</td>
+<td>3555</td>
+<td>110185</td>
+<td>8876</td>
+<td>2136.0</td>
+</tr>
+<tr>
+<td>2017</td>
+<td>508</td>
+<td>278310</td>
+<td>531560</td>
+<td>3606</td>
+<td>105747</td>
+<td>9040</td>
+<td>2468.0</td>
+</tr>
+</tbody></table>
+
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+  
+    
+<nav class="article-nav pt-4 mt-3" id="article-nav">
+  
+    <a href="/2023/03/28/fish/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          How the XLab help local fish farming contractor predict profit?
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/03/25/eg-traffic/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">How the XLab solve the traffic jam issue in one Chinese city?</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+</div>
+    </section>
+    <footer class="footer pt-5 mt-5">
+  <div class="container">
+    <div class="py-3">
+      <div class="row justify-content-between">
+        <div class="col-6">
+          <img class="filter-gray mb-3 lazyload" height="40" data-src="/images/xlab-icon.png" alt="XLab" role="img">
+          <p class="mb-4">Address: Lytchett House, 13 Freeland Park, Wareham Road, Poole, Dorset, BH16 6FA, England</p>
+          <ul class="list-inline">
+            
+              <li class="list-inline-item">
+                <a href="">
+                  <img 0="Instagram" src="/images/icons/icons8-instagram.svg">
+                </a>
+              </li>
+            
+              <li class="list-inline-item">
+                <a href="javascript:;">
+                  <img 0="WeChat" src="/images/icons/icons8-wechat.svg">
+                </a>
+              </li>
+            
+              <li class="list-inline-item">
+                <a href="mailto:a@abc.com">
+                  <img 0="Mail" src="/images/icons/icons8-mail.svg">
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+        <div class="col-4">
+          <h5>Links</h5>
+          <ul class="list-inline">
+            
+              <li class="list-inline-item">
+                <a href="https://acorn.imaging.xin/" title="Acorn" target="_blank" rel="noopener">Acorn</a>
+              </li>
+            
+              <li class="list-inline-item">
+                <a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+              </li>
+            
+              <li class="list-inline-item">
+                <a href="https://github.com/" title="GitHub" target="_blank" rel="noopener">GitHub</a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr class="hr" style="opacity: .25;">
+    <div class="pt-3 pb-5">
+      <ul class="list-inline mb-0 text-center">
+        <li class="list-inline-item">&copy; 2023 XLab</li>
+        
+        <li class="list-inline-item">Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+        <li class="list-inline-item">Designer <a href="https://acorn.imaging.xin/" target="_blank">Yunchang Yang</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+  </main>
+  <div id="mobile-nav-dimmer"></div>
+<div id="mobile-nav">
+	<div id="mobile-nav-inner">
+		<ul class="mobile-nav">
+  
+    
+  <li class="nav-item ">
+    <a class="nav-item-link" href="/">HOME</a>
+  </li>
+  
+    
+  <li class="nav-item ">
+    <a class="nav-item-link" href="/gallery">SERVICES</a>
+  </li>
+  
+    
+  <li class="nav-item ">
+    <a class="nav-item-link" href="/stories">EXAMPLES</a>
+  </li>
+  
+    
+  <li class="nav-item ">
+    <a class="nav-item-link" href="/archives">BLOG</a>
+  </li>
+  
+    
+  <li class="nav-item ">
+    <a class="nav-item-link" href="/about">ABOUT</a>
+  </li>
+  
+</ul>
+		
+	</div>
+</div>
+
+  <script src="/libs/feather/feather.min.js"></script>
+<script src="/libs/lazysizes/lazysizes.min.js"></script>
+
+	<script src="/libs/tocbot/tocbot.min.js"></script>
+	<script>
+    tocbot.init({
+      // Where to render the table of contents.
+      tocSelector: '.js-toc',
+      // Where to grab the headings to build the table of contents.
+      contentSelector: '.js-toc-content',
+      // Which headings to grab inside of the contentSelector element.
+      headingSelector: 'h2, h3',
+      // For headings inside relative or absolute positioned containers within content.
+      hasInnerContainers: true,
+    });
+	</script>
+
+
+
+
+
+<script src="/js/mobile-nav.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
